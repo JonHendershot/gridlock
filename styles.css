@@ -1,0 +1,71 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility; }
+
+body {
+  background-color: #f4f4f4; }
+
+h1 {
+  text-transform: uppercase;
+  font-family: "Lato", serif;
+  letter-spacing: 8px;
+  padding-left: 8px;
+  text-align: center;
+  padding: 45px 0;
+  color: #f5f5f5; }
+
+header {
+  position: relative; }
+  header .arrow {
+    background-color: #0A0E19;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
+
+h1.title {
+  background-color: #0A0E19;
+  margin: 0;
+  padding: 90px 0;
+  letter-spacing: 20px;
+  padding-left: 20px;
+  font-weight: 400;
+  color: #ab987a; }
+
+.gridlock-container {
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-justify-content: space-between;
+  -webkit-align-items: center;
+  flex-wrap: wrap; }
+  .gridlock-container .grid-item {
+    width: 33.333%;
+    padding: 50px 0;
+    text-align: center; }
+  .gridlock-container .grid-item:nth-child(4n+1) {
+    background-color: #0f1626; }
+  .gridlock-container .grid-item:nth-child(4n+2) {
+    background-color: #ab987a; }
+  .gridlock-container .grid-item:nth-child(4n+3) {
+    background-color: #ff533d; }
+  .gridlock-container .grid-item:nth-child(4n+4) {
+    background-color: #f5f5f5; }
+    .gridlock-container .grid-item:nth-child(4n+4) h1 {
+      color: #0A0E19; }
+  .gridlock-container h1 {
+    font-size: 12px;
+    margin: 0; }
+  .gridlock-container .grid-item.alt:nth-child(5n+4), .gridlock-container .grid-item.alt:nth-child(5n+5), .gridlock-container .grid-item.alt-inv:nth-child(5n+1), .gridlock-container .grid-item.alt-inv:nth-child(5n+2), .gridlock-container .grid-item.anom-1:nth-child(10n+10), .gridlock-container .grid-item.anom-1:nth-child(10n+11), .gridlock-container .grid-item.r-2:last-child, .gridlock-container .grid-item.r-2:nth-last-child(2), .gridlock-container .grid-item.r-1:last-child, .gridlock-container .grid-item.r-1:nth-last-child(2), .gridlock-container .grid-item.r-1:nth-child(-n+2) {
+    width: 50%; }
