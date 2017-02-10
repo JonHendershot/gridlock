@@ -2,7 +2,14 @@
 	
 	// Settings :: Used to create number of elements and create a ceiling 
 	$iterations = 150; // Max Number
-	$post_num = 132; // Number of Elements 
+	$post_num = rand(5,150); // Number of Elements 
+	$random_gutter = rand(0,30); // Get a random numer to apply to the gutter class
+	
+	if($random_gutter%5 === 0 || $random_gutter%3 === 0){ // Only use multiples of 5 or 3
+		$gutter = 'gutter-' . $random_gutter . 'px';
+	}else {
+		$gutter = 'gutter-0px';
+	}
 	
 	// Preparation :: Setup Grid Numbers to ensure the last row is full [used for evaluation in Display Logic]
 	$grid_lock = array(
@@ -60,8 +67,10 @@
 	}
 	
 	// Loop and Create Posts
+	echo "<div class='gridlock-container $gutter'>";
 		for($xx = 1; $xx <= $post_num; $xx++){
-			echo "<div class='grid-item $display_class'>
-					<h1>$xx<br>$display_class</h1>
+			echo "<div class='grid-item $display_class $gutter'>
+					<h1>Item<br />$xx of $post_num</h1>
 				</div>";
 		}
+	echo "</div>";

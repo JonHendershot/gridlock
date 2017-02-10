@@ -1,8 +1,11 @@
+// a comment
+@import 'variables';
 html, body {
 	margin: 0;
 	padding: 0;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
+	background-color: rgb(220,220,220);
 }
 body {
 	background-color: #f4f4f4;
@@ -10,7 +13,7 @@ body {
 
 h1 {
 	text-transform: uppercase;
-	font-family: "Lato", serif;
+	font-family: "Lato", sans-serif;
 	letter-spacing: 8px;
 	padding-left: 8px;
 	text-align: center;
@@ -43,9 +46,8 @@ h1.title {
 	color: #ab987a;
 }
 
-// Spacing
+// Gridlock
 .gridlock-container{
-	width: 100%;
 	display: flex;
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -55,13 +57,18 @@ h1.title {
 	-webkit-justify-content: space-between;
 	-webkit-align-items:center;
 	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
 	
+	h1 {
+		font-size: 12px;
+		margin: 0;
+	}	
 	.grid-item {
-		width: 33.333%;
-		padding: 50px 0;
-		text-align: center;
-	}
 
+		
+		padding: 70px 0;
+	}
 	.grid-item:nth-child(4n+1){
 		background-color: #0f1626;
 	}
@@ -77,11 +84,24 @@ h1.title {
 			color: #0A0E19;
 		}
 	}
-	h1 {
-		font-size: 12px;
-		margin: 0;
-	}
-	.grid-item.alt:nth-child(5n+4), .grid-item.alt:nth-child(5n+5), .grid-item.alt-inv:nth-child(5n+1), .grid-item.alt-inv:nth-child(5n+2), .grid-item.anom-1:nth-child(10n+10), .grid-item.anom-1:nth-child(10n+11), .grid-item.r-2:last-child, .grid-item.r-2:nth-last-child(2), .grid-item.r-1:last-child, .grid-item.r-1:nth-last-child(2), .grid-item.r-1:nth-child(-n+2){
-		width: 50%;
-	}
 }	
+
+// Variables
+$gutter_slug : gutter;
+// Spacing
+// Loop through number of gutter options and apply element widths accordingly
+@for $i from 0px through 30px {
+	.gridlock-container.#{$gutter_slug}-#{$i} {
+			@include calc(margin-top,$i " * 0.5");
+			@include calc(margin-bottom,$i " * 0.5");
+			@include calc(width,"100% -" $i);
+	}
+	.grid-item.#{$gutter_slug}-#{$i}{
+		@include calc(width,"33.333% -" $i);
+		@include calc(margin,$i " * 0.5");
+	}
+	.grid-item.alt:nth-child(5n+4).#{$gutter_slug}-#{$i}, .grid-item.alt:nth-child(5n+5).#{$gutter_slug}-#{$i}, .grid-item.alt-inv:nth-child(5n+1).#{$gutter_slug}-#{$i}, .grid-item.alt-inv:nth-child(5n+2).#{$gutter_slug}-#{$i}, .grid-item.anom-1:nth-child(10n+10).#{$gutter_slug}-#{$i}, .grid-item.anom-1:nth-child(10n+11).#{$gutter_slug}-#{$i}, .grid-item.r-2:last-child.#{$gutter_slug}-#{$i}, .grid-item.r-2:nth-last-child(2).#{$gutter_slug}-#{$i}, .grid-item.r-1:last-child.#{$gutter_slug}-#{$i}, .grid-item.r-1:nth-last-child(2).#{$gutter_slug}-#{$i}, .grid-item.r-1:nth-child(-n+2).#{$gutter_slug}-#{$i}{
+		@include calc(width,"50% -" $i);
+		}
+	}
+

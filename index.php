@@ -8,9 +8,9 @@
 	<header class="header">
 		<h1 class="title">Gridlock</h1>
 	</header>
-	<div class="gridlock-container">
-		<?php include 'gridlock.php'; ?>
-	</div>
+	
+	<?php include 'gridlock.php'; ?>
+	
 </body>
 	
 </html>

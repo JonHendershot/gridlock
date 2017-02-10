@@ -1,0 +1,87 @@
+/*************************************
+  - - - - - - - FONT FACES - - - - - - 
+**************************************/
+
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500');
+@import url('../fonts/stylesheet.css');
+
+$header_font : 'Big Caslon', serif;
+$body_font : 'Maven Pro', sans-serif;
+$blog_font : 'Georgia', serif;
+
+/*************************************
+  - - - - - - COLOR PALETTE - - - - - 
+**************************************/
+$black : #000;
+$white : #dedede;
+$tan : #ede7ca;
+$metacolor : rgb( 200,200,200 );
+$dividercolor : rgb(205,205,205);
+$offwhite : rgb(222,222,222);
+
+/*************************************
+  - - - - - - MISC VARIALBES - - - - - 
+**************************************/
+$max-width : 1300px;
+
+/*************************************
+  - - - - - - - - MIXINS - - - - - - - 
+**************************************/
+@mixin flexbox($align,$justify){
+	display: flex;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	align-items: $align;
+	-webkit-align-items: $align;
+	justify-content: $justify;
+	-webkit-justify-content: $justify;
+}
+@mixin translate($Xvalue,$Yvalue,$Zvalue){
+	-webkit-transform: translate3d($Xvalue,$Yvalue,$Zvalue);
+	-moz-transform: translate3d($Xvalue,$Yvalue,$Zvalue);
+	-ms-transform: translate3d($Xvalue,$Yvalue,$Zvalue);
+	transform: translate3d($Xvalue,$Yvalue,$Zvalue);
+}
+@mixin rotate($deg) {
+	    -ms-transform: rotate($deg); /* IE 9 */
+    -webkit-transform: rotate($deg); /* Chrome, Safari, Opera */
+    -moz-transform: rotate($deg); /* Mozilla ? */
+    transform: rotate($deg);
+}
+@mixin transition($time,$for,$style){
+	transition: $time $for $style;
+	-webkit-transition: $time $for $style;
+	-moz-transition: $time $for $style;
+	-ms-transition: $time $for $style;
+	-o-transition: $time $for $style;
+}
+@mixin easeout($time){
+-webkit-transition: all $time cubic-bezier(0.375, 0.005, 0.000, 1.000); 
+   -moz-transition: all $time cubic-bezier(0.375, 0.005, 0.000, 1.000); 
+     -o-transition: all $time cubic-bezier(0.375, 0.005, 0.000, 1.000); 
+        transition: all $time cubic-bezier(0.375, 0.005, 0.000, 1.000); /* custom */
+}
+@mixin ease($time){
+		-webkit-transition: all $time cubic-bezier(0.805, 0, 0.215, 1.000); /* older webkit */
+	-webkit-transition: all $time cubic-bezier(0.805, 0, 0.215, 1.000); 
+   -moz-transition: all $time cubic-bezier(0.805, 0, 0.215, 1.000); 
+     -o-transition: all $time cubic-bezier(0.805, 0, 0.215, 1.000); 
+        transition: all $time cubic-bezier(0.805, 0, 0.215, 1.000); /* custom */
+}
+@mixin calc($property, $expression) { 
+  #{$property}: -o-calc(#{$expression}); 
+  #{$property}: -moz-calc(#{$expression}); 
+  #{$property}: -webkit-calc(#{$expression}); 
+  #{$property}: calc(#{$expression}); 
+} 
+@mixin center-spacing($distance) {
+	letter-spacing: $distance;
+	padding-left: $distance;
+}
+@mixin max-content($mproperty) {
+	#{$mproperty}: max-content;
+	#{$mproperty}: -webkit-max-content;
+	#{$mproperty}: -moz-max-content;
+	#{$mproperty}: -moz-fit-content;
+}
